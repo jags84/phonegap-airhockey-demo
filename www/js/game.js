@@ -18,8 +18,8 @@ window.onload = function(){
 			pad.image = game.assets["img/pad.png"];
 			pad.x = 0;
 			pad.y = 0;
-			pad.frame = 5;
-
+			pad.frame = 0;
+			window.pad = pad;
 			var court = new Sprite(120,45);
 			court.image = game.assets["img/court.png"];
 			court.x = 90;
@@ -28,25 +28,30 @@ window.onload = function(){
 
 			game.rootScene.addChild(pad);
 			game.rootScene.addChild(court);
-
+			pad.tl.on("actionend",function(evt){
+				console.debug("ENDED");
+			})
 			pad.addEventListener("enterframe", function(){
-
 				if (this.x < 0){
 					valueX = 1;
-					this.x = this.x
+					this.tl.clear();
+					this.x = 0;
 				}
 				if ((this.x+50) > game.width){
 					valueX = -1
-					this.x = this.x
+					this.tl.clear();
+					this.x = game.width - 50
 				}
 
 				if (this.y < 0){
 					valueY = 1;
-					this.y = this.y
+					this.tl.clear();
+					this.y = 0
 				}
 				if ((this.y+50) > game.height){
 					valueY = -1
-					this.y = this.y
+					this.tl.clear();
+					this.y = game.height - 50
 				}
 
 				if (moving){
@@ -109,19 +114,20 @@ function movePad(game,pad,x,y){
 	cheight = game.height;
 
 	for (i=1;i<6;i++){
-		if ((x>0) && (y>0)){
-			// Abajo a la derecha
-			pad.tl.moveBy(x,y,i*15);
-		}else if((x>0) && (y<0)){
-			// Arriba a la derecha
-			pad.tl.moveBy(x,y,i*15);
-		}else if((x<0) && (y<0)){
-			// Arriba a la izquierda
-			pad.tl.moveBy(x,y,i*15);
-		}else if((x<0) && (y>0)){
-			// Abajo a la izquierda
-			pad.tl.moveBy(x,y,i*15);
-		}
+		pad.tl.moveBy(x,y,i*15);
+		// if ((x>0) && (y>0)){
+		// 	// Abajo a la derecha
+		// 	pad.tl.moveBy(x,y,i*15);
+		// }else if((x>0) && (y<0)){
+		// 	// Arriba a la derecha
+		// 	pad.tl.moveBy(x,y,i*15);
+		// }else if((x<0) && (y<0)){
+		// 	// Arriba a la izquierda
+		// 	pad.tl.moveBy(x,y,i*15);
+		// }else if((x<0) && (y>0)){
+		// 	// Abajo a la izquierda
+		// 	pad.tl.moveBy(x,y,i*15);
+		// }
 		if (i==5){
 			moving=false;
 		}
