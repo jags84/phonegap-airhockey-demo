@@ -1,13 +1,13 @@
 #System Requirement:
 
-NPM - Node Packaged Modules
+NPM - Node Packaged Modules<br>
 https://npmjs.org/
 
-Phonegap V3.0
+Phonegap V3.0<br>
 http://phonegap.com/
 
-IOS Simulator
-You can use xCode Simulator or run the command brew install ios-sim to install it and then run the game
+IOS Simulator<br>
+You can use xCode Simulator or run the command brew install ios-sim to install it and then run the game<br>
 https://github.com/phonegap/ios-sim
 
 #Running the game
