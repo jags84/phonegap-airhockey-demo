@@ -8,7 +8,7 @@ http://phonegap.com/
 
 IOS Simulator<br>
 You can use xCode Simulator or install the Phonegap ios-sim. If you are on OS X and have Brew, to install the ios-sim from phonegap run<br>
-	$ brew install ios-sim<br>
+	$ brew install ios-sim
 https://github.com/phonegap/ios-sim
 
 #Running the game
